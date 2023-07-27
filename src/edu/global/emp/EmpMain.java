@@ -13,15 +13,14 @@ public class EmpMain {
 		List<EmpDto> emps = dao.getEmps();
 		
 		for (EmpDto emp : emps) {
-			System.out.print("사원번호" + emp.getEmpno() + '\t');
-			System.out.print("사원이름" + emp.getEname() + '\t');
-			System.out.print("직업" + emp.getJob() + '\t');
-			System.out.print("매니저" + emp.getMgr() + '\t');
-			System.out.print("날짜" + emp.getHiredate() + '\t');
-			System.out.print("급여" + emp.getSal() + '\t');
-			System.out.print("상여" + emp.getComm() + '\t');
-			System.out.println("부서번호" + emp.getDeptno() + '\t');
-
+			System.out.println("사원번호" + emp.getEmpno());
+			System.out.println("사원이름" + emp.getEname());
+			System.out.println("직업" + emp.getJob());
+			System.out.print("매니저" + emp.getMgr());
+			System.out.print("날짜" + emp.getHiredate());
+			System.out.print("급여" + emp.getSal());
+			System.out.print("상여" + emp.getComm());
+			System.out.println("부서번호" + emp.getDeptno());
 		}
 	}
 

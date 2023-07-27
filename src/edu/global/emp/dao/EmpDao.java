@@ -11,7 +11,7 @@ public class EmpDao {
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	private String user = "scott";
 	private String pwd = "tiger";
-
+	
 	public EmpDao() {
 		try {
 			Class.forName(driver);
@@ -20,26 +20,25 @@ public class EmpDao {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public List<EmpDto> getEmps() {
 		List<EmpDto> emps = new ArrayList<>();
-
+		
 		Connection connection = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
+		
 		String sql = "select * from emp";
-
+		
 		try {
-			
-			connection = DriverManager.getConnection(url,user,pwd); // DB연결
+			connection = DriverManager.getConnection(url,user,pwd);
 			pstmt = connection.prepareStatement(sql);
-
+			
 			rs = pstmt.executeQuery();
-
+			
 			while (rs.next()) {
 				EmpDto emp = new EmpDto();
-
+				
 				emp.setEmpno(rs.getInt("empno"));
 				emp.setEname(rs.getString("ename"));
 				emp.setJob(rs.getString("job"));
@@ -48,14 +47,15 @@ public class EmpDao {
 				emp.setSal(rs.getInt("sal"));
 				emp.setComm(rs.getInt("comm"));
 				emp.setDeptno(rs.getInt("deptno"));
-
+				
 				emps.add(emp);
+				
 			}
 		} catch (Exception e) {
-
+			// TODO: handle exception
 		}
-
+		
 		return emps;
 	}
-
+	
 }
